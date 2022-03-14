@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-size: 13px;
+            line-height: auto;
+            color: #111;
+            background: linear-gradient(to bottom, #5233ff 0%, #ffcc66 104%);
+        }
+
+        .first {
+            background-image: url(images/food.jpg);
+            height: auto;
+            background-attachment: scroll;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 0vw;
+            background: rgba(0,0,0,0.5);
+            text-align: center;
+            color: white;
+            padding: auto;
+            font-variant: small-caps;
+            font-size: 100px;
+            font-family: cursive;
+            letter-spacing: inherit;
+        }
+
+        .container {
+            width: auto;
+            margin: auto;
+        }
+
+        .innerbox {
+            align-items: left;
+            border: 1px solid black;
+            height: auto;
+            width: auto;
+            padding: auto;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: left;
+        }
+
+         .usermail, .userpass,.login {
+            padding: 10px 10px 10px 10px;
+            
+        }
+
+        .mail,.pass {
+            height: auto;
+            width: auto;
+        }
+
+        #button {
+            
+            background-color: greenyellow;
+            font-size: auto;
+            transition-duration: 0.4s;
+        }
+
+            #button:hover {
+                background-color: white;
+            }
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: left
+    }
+    </style>
+    <meta charset="utf-8" />
+    <title>Login to Kitchen Story</title>
+</head>
+<body>
+    <div class="first">
+        <div class="title"><b>Kitchen Story</b></div>
+    </div>
+    <div class="container">
+
+        <div class="innerbox">
+            <h1>Customer Login</h1>
+            
+            
+            <div class="usermail">
+                <label for="custmail" class="Usermail">Email</label><br />
+                <input type="email" class="mail" name="userMail" placeholder="" required />
+            </div>
+            <div class="userpass">
+                <label for="custpass" class="Userpass">Password</label><br />
+                <input type="password" class="pass" name="userPass" placeholder="" required />
+            </div>
+            <div class="login">
+                <span class="loginbtn">
+                    <a href="KitchenStoryMain.html"><input type="submit" id="button" name="save" class="btn btn-primary" value="Login" /></a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+        <div class="copyrights">
+           Prateek Srivastava-FSD Project
+        </div>
+    </div>
+
+
+</body>
+</html>

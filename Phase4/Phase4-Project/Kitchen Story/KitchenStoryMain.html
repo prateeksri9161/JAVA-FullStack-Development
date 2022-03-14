@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+    .placebutton {
+        padding-right: auto;
+    }
+    
+    .button {
+        font-size: auto;
+        transition-duration: 0.4s;
+        float:right;
+        
+       
+    }
+        .button:hover {
+            background-color: white;
+        }
+</style>
+    <meta charset="utf-8" />
+    <title>Shop Kitchen Story</title>
+    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script>
+    function stickyMenu() {
+        var sticky = document.getElementById('sticky');
+        if (window.pageYOffset > 220) {
+            sticky.classList.add('sticky');
+        }
+        else {
+            sticky.classList.remove('sticky');
+        }
+    }
+
+    window.onscroll = function () {
+        stickyMenu();
+    }
+    function searchfunc() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        a = document.getElementsByClassName("dropdown-item");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            console.log(1);
+            if (txtValue.toUpperCase().indexOf(filter) > -1 && filter.length != 0) {
+                a[i].style.display = "block";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+        }
+        var cartinformation = 0;
+
+        function AddtoCart(product) {
+
+            var lb = 1;
+            var price;
+
+            if (cartinformation == "")
+                cartinformation = 1;
+            else
+                cartinformation = 1 + cartinformation;
+
+
+            if (product == "RedBeans") {
+                var e = document.getElementById("redbeansqty");
+                lb = e.options[e.selectedIndex].text;
+                price ='Rs' + e.options[e.selectedIndex].value * 2;
+                
+            }
+
+            else if ((product == "PintoBeans")) {
+                var e = document.getElementById("pbqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 3;
+            }
+
+            else if ((product == "BlackBeans")) {
+                var e = document.getElementById("bblb");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 3;
+            }
+
+            else if ((product == "Potatoes")) {
+                var e = document.getElementById("potatoesqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 1;
+            }
+
+            else if ((product == "Onion")) {
+                var e = document.getElementById("onionqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 3;
+            }
+
+            else if ((product == "Zuccini")) {
+                var e = document.getElementById("zucciniqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 4;
+            }
+
+            else if ((product == "Apple")) {
+                var e = document.getElementById("appleqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 3;
+            }
+
+            else if ((product == "Banana")) {
+                var e = document.getElementById("bananaqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 1;
+            }
+
+            else if ((product == "Kiwi")) {
+                var e = document.getElementById("kiwiqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 8;
+            }
+
+            else if ((product == "ChickenBreast")) {
+                var e = document.getElementById("cbqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 5;
+            }
+
+            else if ((product == "ChickenThighs")) {
+                var e = document.getElementById("ctqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 4;
+            }
+
+            else if ((product == "ChickenDrumsticks")) {
+                var e = document.getElementById("cdqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 7;
+            }
+            else if ((product == "Almonds")) {
+                var e = document.getElementById("almondsqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 4;
+            }
+            else if ((product == "Cashew")) {
+                var e = document.getElementById("cashewqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 5;
+            }
+            else if ((product == "Walnuts")) {
+                var e = document.getElementById("walnutsqty");
+                lb = e.options[e.selectedIndex].text;
+                price = 'Rs' + e.options[e.selectedIndex].value * 8;
+            }
+
+            var newdata = "";
+            var soupdetails = product + "~" + lb + "~" + price;
+            var olddata = sessionStorage.getItem("Cartdetails");
+            if (olddata == null)
+                newdata = soupdetails;
+            else
+                newdata = olddata + ";" + soupdetails;
+
+            
+            sessionStorage.setItem("Cartdetails", newdata);
+
+            document.getElementById('lblCartDetails').innerText = cartinformation;
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <div class="parallax">
+        <div class="page-title">
+            Kitchen Story
+        </div>
+    </div>
+    <div class="menu" id="sticky">
+        <ul class="menu-ul">
+            <a href="#" class="a-menu"><li>Home</li></a>
+            <a href="ShoppingCart.html" class="a-menu"><li>Shopping Cart</li></a>
+            <a href="Login.html" class="a-menu"><li>Login</li></a>
+            <a href="Register.html" class="a-menu"><li>Register</li></a>
+
+        </ul>
+        <div class="search-box" id="myDropdown">
+            <form>
+                <input type="text" placeholder="Search" name="search" class="search-input" id="myInput" onkeyup="searchfunc()" />
+
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="dropdown-content">
+            <ul class="dropdown-list">
+                <li><a href="#beans" class="dropdown-item">Beans</a></li>
+                <li><a href="#vegetables" class="dropdown-item">Vegetables</a></li>
+                <li><a href="#fruits" class="dropdown-item">Fruits</a></li>
+                <li><a href="#meat" class="dropdown-item">Meat</a></li>
+                <li><a href="#nuts" class="dropdown-item">Nuts</a></li>
+                <li><a href="#beans" class="dropdown-item">Red Beans</a></li>
+                <li><a href="#beans" class="dropdown-item">Pinto Beans</a></li>
+                <li><a href="#beans" class="dropdown-item">Black Beans</a></li>
+                <li><a href="#vegetables" class="dropdown-item">Potatoes</a></li>
+                <li><a href="#vegetables" class="dropdown-item">Onion</a></li>
+                <li><a href="#vegetables" class="dropdown-item">Zuccini</a></li>
+                <li><a href="#fruits" class="dropdown-item">Apple</a></li>
+                <li><a href="#fruits" class="dropdown-item">Kiwi</a></li>
+                <li><a href="#fruits" class="dropdown-item">Banana</a></li>
+                <li><a href="#meat" class="dropdown-item">Chicken Breast</a></li>
+                <li><a href="#meat" class="dropdown-item">Chicken Thighs</a></li>
+                <li><a href="#meat" class="dropdown-item">Chicken Drumsticks</a></li>
+                <li><a href="#nuts" class="dropdown-item">Almonds</a></li>
+                <li><a href="#nuts" class="dropdown-item">Walnuts</a></li>
+                <li><a href="#nuts" class="dropdown-item">Cashew</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <a href="#beans">
+            <div class="container-categories">
+                <img src="images/beans.jpg" class="item-image" />
+                <div class="image-title">Beans</div>
+            </div>
+        </a>
+        <a href="#vegetables">
+            <div class="container-categories">
+                <img src="images/vegetables.jpg" class="item-image" />
+                <div class="image-title">Vegetables</div>
+            </div>
+        </a>
+        <a href="#fruits">
+            <div class="container-categories">
+                <img src="images/fruits.jpg" class="item-image" />
+                <div class="image-title">Fruits</div>
+            </div>
+        </a>
+        <a href="#meat">
+            <div class="container-categories">
+                <img src="images/chicken.jpg" class="item-image" />
+                <div class="image-title">Meat</div>
+            </div>
+        </a>
+        <a href="#nuts">
+            <div class="container-categories">
+                <img src="images/nuts.jpg" class="item-image" />
+                <div class="image-title">Nuts</div>
+            </div>
+        </a>
+        
+    </div>
+    <div class="deals-container" id="beans">
+        <div class="parallax">
+            <div class="title">BEANS</div>
+        </div>
+        <div class="items" id="RedBeans">
+            <div class="images">
+                <img src="images/redbeans.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Red Beans</b><br />
+                           <div class="item-select">
+                               Price : Rs2/lb
+                           </div>
+                <label>Qty:</label>
+                <select class="item-select" id="redbeansqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                <button class="buynow-btn" onclick="AddtoCart('RedBeans')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="items" id="PintoBeans">
+            <div class="images">
+                <img src="images/pintobeans.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Pinto Beans</b><br />
+                           <div class="item-select">
+                               Price : Rs3/lb
+                           </div>
+                <label>Qty:</label>
+                <select class="item-select" id="pbqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('PintoBeans')">Add To Cart</button>
+            </div>
+        </div>
+        
+
+        <div class="items" id="BlackBeans">
+            <div class="images">
+                <img src="images/blackbeans.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Black Beans</b><br />
+                          <div class="item-select">
+                              Price : Rs3/lb
+                          </div>
+                <label>Qty:</label>
+                <select class="item-select" id="bblb">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('BlackBeans')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="placebutton"><a href="ShoppingCart.html"><input type="submit" class="button" value="Shopping Cart" /></a></div>
+    </div>
+    <div class="deals-container" id="vegetables">
+        <div class="parallax">
+            <div class="title">VEGETABLES</div>
+        </div>
+        <div class="items" id="Potatoes">
+            <div class="images">
+                <img src="images/potatoes.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Potatoes</b><br />
+                             <div class="item-select">
+                                 Price : Rs1/lb
+                             </div>
+                <label>Qty:</label>
+                <select class="item-select" id="potatoesqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Potatoes')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="items" id="Onion">
+            <div class="images">
+                <img src="images/onion.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Onion</b><br />
+                               <div class="item-select">
+                                   Price : Rs3/lb
+                               </div>
+                <label>Qty:</label>
+                <select class="item-select" id="onionqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Onion')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="items" id="Zuccini">
+            <div class="images">
+                <img src="images/zuccini.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Zuccini</b><br />
+                               <div class="item-select">
+                                   Price : Rs4/lb
+                               </div>
+                <label>Qty:</label>
+                <select class="item-select" id="zucciniqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Zuccini')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="placebutton"><a href="ShoppingCart.html"><input type="submit" class="button" value="Shopping Cart" /></a></div>
+    </div>
+    <div class="deals-container" id="fruits">
+        <div class="parallax">
+            <div class="title">FRUITS</div>
+        </div>
+        <div class="items" id="Apple">
+            <div class="images">
+                <img src="images/apple.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Apple</b><br />
+                            <div class="item-select">
+                                Price : Rs3/lb
+                            </div>
+                <label>Qty:</label>
+                <select class="item-select" id="appleqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Apple')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="items" id="Banana">
+            <div class="images">
+                <img src="images/banana.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Banana</b><br />
+                             <div class="item-select">
+                                 Price : Rs1/lb
+                             </div>
+                <label>Qty:</label>
+                <select class="item-select" id="bananaqty">
+                    <option value="1">1 lb</option>
+                    <option value="2">2 lb</option>
+                    <option value="3">3 lb</option>
+                    <option value="4">4 lb</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Banana')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="items" id="Kiwi">
+            <div class="images">
+                <img src="images/kiwi.jpg" class="item-image-size" />
+            </div>
+            <div class="description">
+                <b>Kiwi</b><br />
+                             <div class="item-select">
+                                 Price : Rs8/dozen
+                             </div>
+                <label>Qty:</label>
+                <select class="item-select" id="kiwiqty">
+                    <option value="1">1 dozen</option>
+                    <option value="2">2 dozen</option>
+                    <option value="3">3 dozen</option>
+                    <option value="4">4 dozen</option>
+                </select><br />
+                         <button class="buynow-btn" onclick="AddtoCart('Kiwi')">Add To Cart</button>
+            </div>
+        </div>
+        <div class="placebutton"><a href="ShoppingCart.html"><input type="submit" class="button" value="Shopping Cart" /></a></div>
+    </div>
+        <div class="deals-container" id="meat">
+            <div class="parallax">
+                <div class="title">MEAT</div>
+            </div>
+            <div class="items" id="ChickenBreast">
+                <div class="images">
+                    <img src="images/chickenbreast.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Chicken Breast</b><br />
+                               <div class="item-select">
+                                   Price : Rs5/lb
+                               </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="cbqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('ChickenBreast')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="items" id="ChickenThighs">
+                <div class="images">
+                    <img src="images/chickenthighs.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Chicken Thighs</b><br />
+                                      <div class="item-select">
+                                          Price : Rs4/lb
+                                      </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="ctqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('ChickenThighs')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="items" id="ChickenDrumsticks">
+                <div class="images">
+                    <img src="images/chickendrumsticks.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Chicken Drumsticks</b><br />
+                                   <div class="item-select">
+                                       Price : Rs7/lb
+                                   </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="cdqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('ChickenDrumsticks')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="placebutton"><a href="ShoppingCart.html"><input type="submit" class="button" value="Shopping Cart" /></a></div>
+        </div>
+        <div class="deals-container" id="nuts">
+            <div class="parallax">
+                <div class="title">NUTS</div>
+            </div>
+            <div class="items" id="Almonds">
+                <div class="images">
+                    <img src="images/almonds.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Almonds</b><br />
+                                  <div class="item-select">
+                                      Price : Rs4/lb
+                                  </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="almondsqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('Almonds')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="items" id="Cashew">
+                <div class="images">
+                    <img src="images/cashew.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Cashew</b><br />
+                                 <div class="item-select">
+                                     Price : Rs5/lb
+                                 </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="cashewqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('Cashew')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="items" id="Walnuts">
+                <div class="images">
+                    <img src="images/walnuts.jpg" class="item-image-size" />
+                </div>
+                <div class="description">
+                    <b>Walnuts</b><br />
+                                  <div class="item-select">
+                                      Price : Rs8/lb
+                                  </div>
+                    <label>Qty:</label>
+                    <select class="item-select" id="walnutsqty">
+                        <option value="1">1 lb</option>
+                        <option value="2">2 lb</option>
+                        <option value="3">3 lb</option>
+                        <option value="4">4 lb</option>
+                    </select><br />
+                             <button class="buynow-btn" onclick="AddtoCart('Walnuts')">Add To Cart</button>
+                </div>
+            </div>
+            <div class="placebutton"><a href="ShoppingCart.html"><input type="submit" class="button" value="Shopping Cart" /></a></div>
+        </div>
+        <div class="footer">
+
+            <div class="copyrights">
+               Prateek Srivastava-FSD Project
+            </div>
+        </div>
+
+</body>
+</html>

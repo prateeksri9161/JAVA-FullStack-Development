@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-size: 13px;
+            line-height: auto;
+            color: #111;
+            background: linear-gradient(to bottom, #5233ff 0%, #ffcc66 104%);
+        }
+
+        .first {
+            background-image: url(images/food.jpg);
+            height: auto;
+            background-attachment: scroll;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 0vw;
+            background: rgba(0,0,0,0.5);
+            text-align: center;
+            color: white;
+            padding: auto;
+            font-variant: small-caps;
+            font-size: 100px;
+            font-family: cursive;
+            letter-spacing: inherit;
+        }
+
+        .container {
+            width: auto;
+            margin: auto;
+            
+        }
+
+        .innerbox {
+            align-items: right;
+            border:1px solid black;
+            height: auto;
+            width: auto;
+            padding: auto;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: left;
+        }
+
+        .namebox, .numberbox, .emailbox, .passbox, .Register {
+            padding: 10px 10px 10px 10px;
+            font-family: "Amazon Ember",Arial,sans-serif;
+            
+        }
+        .a, .b, .c, .d{
+            height:auto;
+            width:auto;
+        }
+        #button {
+            background-color: greenyellow;
+            font-size: auto;
+            transition-duration: 0.4s;
+        }
+        #button1 {
+            background-color: greenyellow;
+            font-size: auto;
+            transition-duration: 0.4s;
+        }
+        #button:hover{
+            background-color: white;
+        }
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: blue;
+        color: white;
+        text-align: left
+    }
+    </style>
+    <meta charset="utf-8" />
+    <title>User Registration</title>
+</head>
+<body>
+    <div class="first">
+        <div class="title">Kitchen Story</div>
+    </div>
+    <div class="container">
+
+        <div class="innerbox">
+            <h1>User Registration</h1>
+            <form action=KitchenStoryMain.html method="GET">
+            <div class="namebox">
+                <label for="custname" class="name">Name</label><br />
+                <input type="text" class="d" name="custName" maxlength="25" placeholder="" required />
+            </div>
+            <div class="numberbox">
+                <label for="custno" class="number">Phone Number</label><br />
+                <div>
+
+                    <input type="tel" class="a" name="custNo" maxlength="10" placeholder="" required />
+                </div>
+            </div>
+            <div class="emailbox">
+                <label for="custmail" class="email">Email</label><br />
+                <input type="email" class="b" name="custMail" placeholder="" required />
+            </div>
+            <div class="passbox">
+                <label for="custpass" class="pass">Password</label><br />
+                <input type="password" class="c" name="custPass" placeholder="" required />
+            </div>
+            <div class="Register">
+                <span class="Registerbtn">
+                    <input type="submit" id="button" name="save" class="btn btn-primary" value="Register" /></a>
+                    <input type="reset" id= "button1" value="Clear" name="btnCLear" class="btn btn-primary">
+                </span>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+
+        <div class="copyrights">
+           Prateek Srivastava-FSD Project
+        </div>
+    </div>
+
+
+</body>
+</html>

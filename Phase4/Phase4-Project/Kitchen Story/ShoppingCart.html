@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <style>
+        body{
+            background-color: rgb(211, 219, 197);
+        }
+        span{
+            color:black;
+           
+        }
+        #a{
+            padding:190px;
+            
+        }
+        #b{
+            padding-left:215px;
+        }
+        #c{
+            padding-left:360px;
+        }
+        .table {
+            text-align:center;
+            height: auto;
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .cart {
+            background-image: url(images/food.jpg);
+            height: 100px;
+            background-attachment: auto;
+            background-position: center;
+            background-repeat: auto;
+            background-size: auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: xx-large;
+            background: rgba(0,0,0,0.5);
+            text-align: center;
+            color: white;
+            padding: auto;
+            font-variant: small-caps;
+            font-size: 500%;
+            font-family: cursive;
+            letter-spacing: auto;
+        }
+        .total{
+            float:right;
+            padding-right:auto;
+        }
+        .placebutton {
+            padding-right: auto;
+        }
+        
+        .button {
+            font-size: auto;
+            transition-duration: 0.4s;
+            float:right;
+            
+           
+        }
+            .button:hover {
+                background-color: white;
+            }
+    .copyrights {
+    font-size: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+    margin: auto;
+    }
+
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: left
+    }
+    </style>
+    <meta charset="utf-8" />
+    <title>Kitchen Story Shopping Cart</title>
+    
+    <script>
+        
+        function Loadinformation() {
+
+            var olddata = sessionStorage.getItem("Cartdetails");
+            addTable(olddata);
+            document.getElementById('lblCardDetails').innerHTML = olddata;
+
+        }
+
+        function addRow(soupname, lb, Price) {
+
+
+
+            var rowCount = table.rows.length;
+            
+            var row = table.insertRow(rowCount);
+
+            row.insertCell(0).innerHTML = product;
+            row.insertCell(1).innerHTML = lb;
+            row.insertCell(2).innerHTML = Price;
+
+        }
+
+        function addTable(olddata) {
+
+            var myTableDiv = document.getElementById("myDynamicTable");
+            
+            var table = document.createElement('TABLE');
+            table.border = '1';
+            table.className = "table";
+            
+            var tableBody = document.createElement('TBODY');
+            table.appendChild(tableBody);
+
+
+
+            var rows = olddata.split(';');
+
+
+
+            for (var i = 0; i < rows.length; i++) {
+                var tr = document.createElement('TR');
+                tableBody.appendChild(tr);
+
+                var columns = rows[i].split('~');
+                var product = columns[0];
+                var lb = columns[1];
+                var price = columns[2];
+
+
+                for (var j = 0; j < 3; j++) {
+                    var td = document.createElement('TD');
+                    td.width = '250';
+                    
+                    td.appendChild(document.createTextNode(columns[j]));
+                    tr.appendChild(td);
+                }
+            }
+
+            myTableDiv.appendChild(table);
+
+        }
+
+
+    </script>
+</head>
+<body onload="javascript:Loadinformation();">
+    <div class="cart">
+        <div class="title"><b>Shopping Cart</b></div>
+        <span id="a">Product</span>
+        <span id="b">Quantity</span>
+        <span id="c">Price(Rs)</span>
+    </div>
+    <br/>
+    <br/>
+    <div id="myDynamicTable"> </div>
+    <br/>
+    <div class="total"><b>Total: &nbsp;  &nbsp; &nbsp;</b></div><br/><br/><br/>
+    <div class="placebutton"><a href="SuccessfulOrder.html"><input type="submit" class="button" value="Place Order" /></a><br/><br/></div>
+    
+    <div class="footer">
+    <div class="copyrights">
+        
+           Prateek Srivastava-FSD Project
+        </div>
+    </div>
+
+</body>
+</html>
